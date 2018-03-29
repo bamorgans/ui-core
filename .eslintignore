@@ -1,5 +1,7 @@
 .eslintrc.js
 enzyme-setup.js
 
-
 test/*
+
+# excluding external js files
+src/assets/js/*
