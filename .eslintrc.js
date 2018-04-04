@@ -10,6 +10,9 @@ let config = {
         'react'
     ],
     "rules": {
+        "react/jsx-closing-tag-location": 0,
+        "import/no-named-default": 0,
+        "import/no-unresolved": 0,
         "class-methods-use-this": 0,
         "comma-dangle": ["warn", "only-multiline"],
         "func-names": ["error", "never"],
