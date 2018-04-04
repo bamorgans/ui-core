@@ -1,15 +1,11 @@
 import React from 'react';
-import '../../assets/css/test-button.css';
-import '../../assets/css/test-button2.css';
+import '../../assets/css/button.css';
+import '../../assets/css/button-svg.css';
 
-// import homeIcon from '../../assets/images/home_icon.png';
+import aperture from '../../assets/images/aperture.svg';
 
 const ButtonSVG = () => (
     <div>
-        <div className='test-button'>button css test</div>
-        <div className='test-button2'>checking... test button 2 css</div>
-
+        <div className='button-svg'><img src={aperture} alt='aperture' />SVG Button</div>
     </div>);
-
-// <img src={homeIcon} alt='homeIcon' />
 export default ButtonSVG;

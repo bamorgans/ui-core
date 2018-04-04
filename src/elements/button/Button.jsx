@@ -1,22 +1,11 @@
-import styled from 'styled-components';
+import React from 'react';
+import '../../assets/css/button.css';
+import '../../assets/css/button-svg.css';
 
-const Button = styled.button`
-  background: #fFB6FF;
-  border: none;
-  border-radius: 2px;
-  color: #FFFFFF;
-  cursor: pointer;
-  display: inline-block;
-  font-size: 16px;
-  line-height: 40px;
-  font-weight: 200;
-  margin: 8px 0;
-  outline: none;
-  padding: 0 12px;
-  text-transform: uppercase;
-  transition: all 300ms ease;
-  &:hover {
-    background: #009EEB;
-  }
-`;
+import homeIcon from '../../assets/images/home_icon.png';
+
+const Button = () => (
+    <div className='button'><img src={homeIcon} alt='homeIcon' />button css test</div>
+);
+
 export default Button;

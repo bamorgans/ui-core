@@ -1,22 +1,8 @@
-import styled from 'styled-components';
+import React from 'react';
+import '../../assets/css/button.css';
 
-const Button2 = styled.button`
-  background: #0000FF;
-  border: none;
-  border-radius: 2px;
-  color: #FFFFFF;
-  cursor: pointer;
-  display: inline-block;
-  font-size: 16px;
-  line-height: 40px;
-  font-weight: 200;
-  margin: 8px 0;
-  outline: none;
-  padding: 0 12px;
-  text-transform: uppercase;
-  transition: all 300ms ease;
-  &:hover {
-    background: #009EEB;
-  }
-`;
+const Button2 = () => (
+    <div className='button2'>button 2</div>
+);
+
 export default Button2;

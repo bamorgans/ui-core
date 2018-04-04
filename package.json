@@ -4,24 +4,20 @@
   "description": "UI component library built with React",
   "main": "lib/index.js",
   "scripts": {
-    "bb": "babel src -d lib",
-    "bb:watch": "babel src -w -d lib",
-    "build": "webpack --config webpack.prod.config.js --display-error-details",
-    "build:watch": "webpack -w --config webpack.prod.config.js --display-error-details",
-    "watch": "babel --watch src --out-dir lib --source-maps inline --copy-files",
+    "build:wp": "webpack --config webpack.config.js --display-error-details",
+    "dev": "babel src --out-dir lib --source-maps inline --copy-files",
+    "watch": "babel src -watch --out-dir lib --source-maps inline --copy-files",
     "lint": "eslint --ext .js,.jsx src/**; exit 0",
     "lint:fix": "eslint --ext .js,.jsx src/**  --fix",
     "lint:watch": "esw -w --ext .js,.jsx src/**",
-    "prepare": "npm run build",
+    "prepare": "npm run watch",
     "test": "jest --env=jsdom"
   },
   "author": "Bob Morganstern <bamorgans@yahoo.com>",
   "license": "ISC",
   "dependencies": {
-    "polished": "^1.9.2",
     "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "styled-components": "^3.2.3"
+    "react-dom": "^16.2.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
