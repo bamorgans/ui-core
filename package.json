@@ -16,6 +16,13 @@
   "author": "Bob Morganstern <bamorgans@yahoo.com>",
   "license": "ISC",
   "dependencies": {
+    "@fortawesome/fontawesome": "^1.1.5",
+    "@fortawesome/fontawesome-free-brands": "^5.0.9",
+    "@fortawesome/fontawesome-free-solid": "^5.0.9",
+    "@fortawesome/react-fontawesome": "0.0.18",
+    "antd": "^3.4.0",
+    "enumify": "^1.0.4",
+    "prop-types": "^15.6.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0"
   },
@@ -46,7 +53,7 @@
     "uglifyjs-webpack-plugin": "^1.2.4",
     "url-loader": "^1.0.1",
     "webpack": "^3.8.1",
-    "webpack-cli": "^1.5.3"
+    "webpack-cli": "^2.0.13"
   },
   "setupFiles": [
     "<rootDir>/enzyme-setup.js"

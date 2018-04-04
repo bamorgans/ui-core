@@ -10,6 +10,7 @@ let config = {
         'react'
     ],
     "rules": {
+        "react/no-typos": 0,
         "react/jsx-closing-tag-location": 0,
         "import/no-unresolved": 0,
         "class-methods-use-this": 0,
