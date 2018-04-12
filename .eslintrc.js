@@ -62,7 +62,6 @@ let config = {
 // Adjusting linting rules for production builds
 if (process.env.NODE_ENV === "production") {
     let productionRules = {
-        "no-console": 1,
     };
 
     config.rules = {...config.rules, ...productionRules};

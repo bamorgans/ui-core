@@ -1,21 +1,22 @@
-const webpack = require('webpack');
 const path = require('path');
-
-const CopyWebpackPlugin = require('copy-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const webpack = require('webpack');
 
 const APP_SRC = path.resolve(__dirname, 'src');
 const APP_LIB = path.resolve(__dirname, 'lib');
 
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+
 module.exports = {
+    context: __dirname,
     entry: [
-        path.join(APP_SRC, 'index.js')
+        path.join(APP_SRC, 'ui-core.js')
     ],
     output: {
         path: APP_LIB,
-        filename: 'index.js'
+        filename: 'ui-core.js',
+        library: 'uiCore',
+        libraryTarget: 'umd'
     },
-    devtool: 'cheap-eval-source-map',
     module: {
         rules: [
             // First, run the linter.
@@ -23,6 +24,7 @@ module.exports = {
             {
                 test: /\.(js|jsx)$/,
                 enforce: 'pre',
+                exclude: /node_modules/,
                 use: [
                     {
                         options: {
@@ -44,41 +46,28 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                loader: ExtractTextPlugin.extract({
-                    fallback: 'style-loader',
-                    use: 'css-loader',
-                }),
-            },
-            /* {
-                test: /\.(png|jp(e*)g|svg)$/,
                 use: [
-                    'file-loader',
+                    'style-loader',
+                    'css-loader',
+                    'postcss-loader'
                 ],
-            }, */
+            },
             {
                 test: /\.(png|jp(e*)g|svg)$/,
-                use: [{
-                    loader: 'url-loader',
-                    options: {
-                        limit: 8000, // Convert images < 8kb to base64 strings
-                        name: 'images/[hash]-[name].[ext]'
-                    }
-                }]
-            }
+                use: 'url-loader'
+            },
         ]
     },
     resolve: {
         extensions: ['.js', '.jsx']
     },
     plugins: [
+        new webpack.EnvironmentPlugin(['NODE_ENV']),
         new webpack.optimize.OccurrenceOrderPlugin(),
         new webpack.NoEmitOnErrorsPlugin(),
         new webpack.HotModuleReplacementPlugin(),
         // Add module names to factory functions so they appear in browser profiler.
         new webpack.NamedModulesPlugin(),
-        new ExtractTextPlugin('ui-core-style.css'),
-        new CopyWebpackPlugin([{ from: 'src/assets/js/**', to: 'assets/js', toType: 'dir', flatten: true }]),
-        new CopyWebpackPlugin([{ from: 'src/assets/css/**', to: 'assets/css', toType: 'dir', flatten: true }]),
-        new CopyWebpackPlugin([{ from: 'src/assets/images/**', to: 'assets/images', toType: 'dir', flatten: true }]),
+        new CleanWebpackPlugin(['lib'])
     ]
 };
