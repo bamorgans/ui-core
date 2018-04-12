@@ -1,5 +1,10 @@
 .eslintrc.js
 enzyme-setup.js
+webpack.*.js
+postcss.config.js
+README*.*
+
+docs/**
 
 test/*
 
