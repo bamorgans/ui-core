@@ -156,7 +156,6 @@ ReactDOM.render(<Button />, mountNode);
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta charset="utf-8">
     <link href="https://use.fontawesome.com/releases/v5.0.9/css/all.css" rel="stylesheet">
     <title>React Component Lib Playground</title>
 </head>
@@ -167,25 +166,32 @@ ReactDOM.render(<Button />, mountNode);
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react/16.3.1/umd/react.production.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.3.1/umd/react-dom.production.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
-<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
 <script type="text/javascript" src="./ui-core.min.js"></script>
 <script type="text/babel">
     class Greeting extends React.Component {
+        constructor() {
+            super();
+            this.siteNavDataProvider = new uiCore.SiteNavDataProvider().fetchMenuData();
+        }
         render() {
             return (<div>
                 <p>Greetings.  Testing components</p>
                 <uiCore.ButtonExtImage imageSrc="https://cdn.drivek.it/configurator-icon/cars/gb/400/FERRARI/488-GTB/6651_COUPE-2-DOORS/ferrari-488-gtb-side-view.png"></uiCore.ButtonExtImage>
+                <div id='siteNav' className='sitenav'>
+                    <uiCore.SiteNav appState='WIDE' dataPromise={this.siteNavDataProvider} />
+                </div>
             </div>);
         }
     }
     ReactDOM.render(<div>
-        <Greeting />
-        <uiCore.Button></uiCore.Button>
+            <Greeting />
+            <uiCore.Button></uiCore.Button>
         </div>,
         document.getElementById('page-content')
     );
 </script>
 </body>
 </html>
+
 
 ```
