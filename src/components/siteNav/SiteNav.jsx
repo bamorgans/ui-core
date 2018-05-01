@@ -24,24 +24,24 @@ class SiteNav extends React.Component {
 
         // set default 'pageState'
         switch (props.appState) {
-        case LAYOUT_TYPE.WIDE: {
-            this.state = {
-                pageState: PAGESTATE.WIDE_OPEN,
-                dataReady: false,
-            };
-            break;
-        }
-        case LAYOUT_TYPE.NARROW: {
-            this.state = {
-                pageState: PAGESTATE.NARROW_CLOSED,
-                dataReady: false,
-            };
-            break;
-        }
-        default: {
+            case LAYOUT_TYPE.WIDE: {
+                this.state = {
+                    pageState: PAGESTATE.WIDE_OPEN,
+                    dataReady: false,
+                };
+                break;
+            }
+            case LAYOUT_TYPE.NARROW: {
+                this.state = {
+                    pageState: PAGESTATE.NARROW_CLOSED,
+                    dataReady: false,
+                };
+                break;
+            }
+            default: {
             // TODO ???
-            console.error(`APP STATE MUST BE EITHER 'WIDE' or 'NARROW' - received value:  ${props.appState}`);
-        }
+                console.error(`APP STATE MUST BE EITHER 'WIDE' or 'NARROW' - received value:  ${props.appState}`);
+            }
         }
 
 
@@ -76,25 +76,25 @@ class SiteNav extends React.Component {
         const pageState = this.state.pageState;
 
         switch (pageState) {
-        case PAGESTATE.WIDE_OPEN: {
-            this.setState({ pageState: PAGESTATE.WIDE_CLOSED });
-            break;
-        }
-        case PAGESTATE.WIDE_CLOSED: {
-            this.setState({ pageState: PAGESTATE.WIDE_OPEN });
-            break;
-        }
-        case PAGESTATE.NARROW_CLOSED: {
-            this.setState({ pageState: PAGESTATE.NARROW_OPEN });
-            break;
-        }
-        case PAGESTATE.NARROW_OPEN: {
-            this.setState({ pageState: PAGESTATE.NARROW_CLOSED });
-            break;
-        }
-        default: {
-            console.error("changePageState() - unrecognized 'pageState'");
-        }
+            case PAGESTATE.WIDE_OPEN: {
+                this.setState({ pageState: PAGESTATE.WIDE_CLOSED });
+                break;
+            }
+            case PAGESTATE.WIDE_CLOSED: {
+                this.setState({ pageState: PAGESTATE.WIDE_OPEN });
+                break;
+            }
+            case PAGESTATE.NARROW_CLOSED: {
+                this.setState({ pageState: PAGESTATE.NARROW_OPEN });
+                break;
+            }
+            case PAGESTATE.NARROW_OPEN: {
+                this.setState({ pageState: PAGESTATE.NARROW_CLOSED });
+                break;
+            }
+            default: {
+                console.error("changePageState() - unrecognized 'pageState'");
+            }
         }
     }
 
@@ -177,21 +177,21 @@ class SiteNav extends React.Component {
         }
 
         switch (this.state.pageState) {
-        case PAGESTATE.WIDE_OPEN:
-        case PAGESTATE.WIDE_CLOSED: {
-            return (
-                <div id='sitenavContent'>
-                    {this.generateWideUI()}
-                </div>
-            );
-        }
-        default: {
-            return (
-                <div id='sitenavContent'>
-                    {this.generateNarrowUI()}
-                </div>
-            );
-        }
+            case PAGESTATE.WIDE_OPEN:
+            case PAGESTATE.WIDE_CLOSED: {
+                return (
+                    <div id='sitenavContent'>
+                        {this.generateWideUI()}
+                    </div>
+                );
+            }
+            default: {
+                return (
+                    <div id='sitenavContent'>
+                        {this.generateNarrowUI()}
+                    </div>
+                );
+            }
         }
     }
 }
