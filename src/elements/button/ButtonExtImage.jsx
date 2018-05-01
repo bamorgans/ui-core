@@ -4,7 +4,8 @@ import '../../assets/css/button.css';
 
 const ButtonExtImage = ({ imageSrc }) => (
     <div className='button2'><img src={imageSrc} alt='aperture' />button With External
-        Image</div>
+        Image
+    </div>
 );
 
 

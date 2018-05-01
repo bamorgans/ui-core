@@ -9,14 +9,9 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 module.exports = {
     context: __dirname,
     entry: [
+        'babel-polyfill',
         path.join(APP_SRC, 'ui-core.js')
     ],
-    output: {
-        path: APP_LIB,
-        filename: 'ui-core.js',
-        library: 'uiCore',
-        libraryTarget: 'umd'
-    },
     module: {
         rules: [
             // First, run the linter.
@@ -62,7 +57,6 @@ module.exports = {
         extensions: ['.js', '.jsx']
     },
     plugins: [
-        new webpack.EnvironmentPlugin(['NODE_ENV']),
         new webpack.optimize.OccurrenceOrderPlugin(),
         new webpack.NoEmitOnErrorsPlugin(),
         new webpack.HotModuleReplacementPlugin(),

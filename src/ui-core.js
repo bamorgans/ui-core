@@ -1,3 +1,4 @@
+import "babel-polyfill";
 import './assets/css/core-ui.css';
 
 export { default as Button } from './elements/button/Button';
